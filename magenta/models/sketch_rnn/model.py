@@ -59,7 +59,7 @@ def get_default_hparams():
       random_scale_factor=0.15,  # Random scaling data augmentation proportion.
       augment_stroke_prob=0.10,  # Point dropping augmentation proportion.
       conditional=True,  # When False, use unconditional decoder-only model.
-      is_training=True  # Is model training? Recommend keeping true.
+      is_training=True,  # Is model training? Recommend keeping true.
       scale=1.0 # gaussian scale, added for cs486 project
   )
   return hparams
