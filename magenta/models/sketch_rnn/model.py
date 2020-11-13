@@ -60,6 +60,7 @@ def get_default_hparams():
       augment_stroke_prob=0.10,  # Point dropping augmentation proportion.
       conditional=True,  # When False, use unconditional decoder-only model.
       is_training=True  # Is model training? Recommend keeping true.
+      scale=1.0 # gaussian scale, added for cs486 project
   )
   return hparams
 
@@ -203,7 +204,7 @@ class Model(object):
                                             self.sequence_lengths)
       self.sigma = tf.exp(self.presig / 2.0)  # sigma > 0. div 2.0 -> sqrt.
       eps = tf.random_normal(
-          (self.hps.batch_size, self.hps.z_size), 0.0, 1.0, dtype=tf.float32)
+          (self.hps.batch_size, self.hps.z_size), 0.0, hp.scale, dtype=tf.float32)
       self.batch_z = self.mean + tf.multiply(self.sigma, eps)
       # KL cost
       self.kl_cost = -0.5 * tf.reduce_mean(
