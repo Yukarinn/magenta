@@ -204,7 +204,7 @@ class Model(object):
                                             self.sequence_lengths)
       self.sigma = tf.exp(self.presig / 2.0)  # sigma > 0. div 2.0 -> sqrt.
       eps = tf.random_normal(
-          (self.hps.batch_size, self.hps.z_size), 0.0, hp.scale, dtype=tf.float32)
+          (self.hps.batch_size, self.hps.z_size), 0.0, self.hps.scale, dtype=tf.float32)
       self.batch_z = self.mean + tf.multiply(self.sigma, eps)
       # KL cost
       self.kl_cost = -0.5 * tf.reduce_mean(
