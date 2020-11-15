@@ -2,11 +2,8 @@
 
 This is forked from the [Magenta](https://github.com/magenta/magenta) repository and we have modified the [sketch_rnn model](/magenta/models/sketch_rnn) for our CS 486 group research project. We would like to investigate in the impact of the randomness of the latent vector, and added a hyperparameter, `scale`, to the model which lets us specify the level of noise being sent to the latent vector. In our research paper, we are experimenting with values `0.5, 1.0, 2.0, 4.0`.
 
-Below is the introduction copied from the Magenta repository.
-
-<img src="magenta-logo-bg.png" height="75">
-
-**Magenta** is a research project exploring the role of machine learning
+Introduction copied from the Magenta repository:
+_Magenta is a research project exploring the role of machine learning
 in the process of creating art and music.  Primarily this
 involves developing new deep learning and reinforcement learning
 algorithms for generating songs, images, drawings, and other materials. But it's also
@@ -19,9 +16,8 @@ but many others have contributed significantly to the project. We use
 tools in open source on this GitHub.  If you’d like to learn more
 about Magenta, check out our [blog](https://magenta.tensorflow.org),
 where we post technical details.  You can also join our [discussion
-group](https://groups.google.com/a/tensorflow.org/forum/#!forum/magenta-discuss).
+group](https://groups.google.com/a/tensorflow.org/forum/#!forum/magenta-discuss)._
 
-This is the home for our Python TensorFlow library. To use our models in the browser with [TensorFlow.js](https://js.tensorflow.org/), head to the [Magenta.js](https://github.com/tensorflow/magenta-js) repository.
 
 ## To use the modified version of sketch_rnn
 
@@ -80,3 +76,7 @@ augment_stroke_prob=0.10,      # Point dropping augmentation proportion.
 conditional=True,              # If False, use decoder-only model.
 scale = 1.0                    # Added for CS486 research project to specify the scale of noise sent to the latent vector.
 ```
+
+The checkpoints of the model will then be saved to the checkpoint path specified in the command.
+
+The checkpoints could later be loaded to use the model.
