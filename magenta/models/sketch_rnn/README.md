@@ -69,6 +69,7 @@ output_dropout_prob=0.90,      # Probability of output dropout keep.
 random_scale_factor=0.15,      # Random scaling data augmention proportion.
 augment_stroke_prob=0.10,      # Point dropping augmentation proportion.
 conditional=True,              # If False, use decoder-only model.
+scale = 1.0                    # Added for CS486 research project to specify the scale of noise sent to the latent vector.
 ```
 
 Here are some options you may want to use to train the model on a very large dataset spanning three `.npz` files, and use [HyperLSTM](https://arxiv.org/abs/1609.09106) as the RNN cells.  For small datasets of less than 10K training examples, LSTM with Layer Normalization (`layer_norm` for both `enc_model` and `dec_model`) works best.
